@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>领导去向状态看板</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1>领导去向状态看板</h1>
+                <p><i class="fas fa-broadcast-tower"></i> 实时数据同步</p>
+            </div>
+            <div class="header-controls">
+                <button class="refresh-button" id="refreshButton">
+                    <i class="fas fa-sync-alt"></i>
+                    刷新数据
+                </button>
+            </div>
+        </header>
+
+        <div class="time-stamps">
+            <p class="timestamp" id="timestamp"><i class="far fa-clock"></i> 最后更新：--:--:--</p>
+            <p class="timestamp" id="currentTime"><i class="fas fa-clock"></i> 当前时间：--:--:--</p>
+        </div>
+
+        <div class="carousel-container">
+            <div class="table-container">
+                <div class="table-header">
+                    <div>序号</div>
+                    <div>状态</div>
+                    <div>姓名</div>
+                    <div>职位</div>
+                    <div>去向</div>
+                    <div>日程安排时间</div>
+                </div>
+                <div class="table-body" id="tableBody">
+                    <!-- Data rows will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="controls">
+                <div class="row-count-control">
+                    <label for="rowCount"><i class="fas fa-list"></i> 显示行数</label>
+                    <div class="number-input">
+                        <button class="minus" id="decreaseRows">-</button>
+                        <input type="number" id="rowCount" min="2" max="100" value="5">
+                        <button class="plus" id="increaseRows">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="stats-container">
+            <div class="stat-card stat-available">
+                <div class="stat-header">
+                    <div class="stat-header-content">
+                        <span class="stat-title">在岗</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                    </div>
+                    <div class="stat-count" id="availableCount">0</div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-busy">
+                <div class="stat-header">
+                    <div class="stat-header-content">
+                        <span class="stat-title">会议</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="stat-count" id="busyCount">0</div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-away">
+                <div class="stat-header">
+                    <div class="stat-header-content">
+                        <span class="stat-title">出差</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                    </div>
+                    <div class="stat-count" id="awayCount">0</div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-break">
+                <div class="stat-header">
+                    <div class="stat-header-content">
+                        <span class="stat-title">休息</span>
+                        <div class="stat-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                    </div>
+                    <div class="stat-count" id="breakCount">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
