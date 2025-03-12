@@ -91,6 +91,18 @@ async function refreshData() {
         if (!response.ok) throw new Error('网络响应不正常');
         
         const data = await response.json();
+         data = [
+            { name: '张三', position: '经理', locationDN: '北京', destination: '上海', status: 'available' },
+            { name: '李四', position: '工程师', locationDN: '上海', destination: '', status: 'busy' },
+            { name: '王五', position: '设计师', locationDN: '广州', destination: '', status: 'away' },
+            { name: '赵六', position: '分析师', locationDN: '深圳', destination: '', status: 'break' },
+            { name: '孙七', position: '测试员', locationDN: '北京', destination: '', status: 'available' },
+            { name: '周八', position: '运维', locationDN: '上海', destination: '', status: 'busy' },
+            { name: '吴九', position: 'HR', locationDN: '广州', destination: '', status: 'away' },
+            { name: '郑十', position: '产品经理', locationDN: '深圳', destination: '', status: 'break' },
+            { name: '钱十一', position: '前端开发', locationDN: '北京', destination: '', status: 'available' },
+            { name: '王十二', position: '后端开发', locationDN: '上海', destination: '', status: 'busy' }
+        ];
         state.data = data;
         state.lastUpdate = new Date();
         state.currentIndex = 0;
